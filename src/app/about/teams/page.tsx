@@ -1,7 +1,22 @@
+import Link from "next/link"
+import { users } from '../../data/users'
 
 const page = () => {
     return (
-        <h1>ABout teams</h1>
+        <>
+        <div>
+            <h1>Users</h1>
+
+
+            {
+                users.map((user) => (
+                    <div key={user.id}>
+                        <Link href={`/about/teams/${user.id}`}>{user.name}</Link>
+                    </div>
+                ))
+            }
+        </div>
+        </>
     )
 }
 
