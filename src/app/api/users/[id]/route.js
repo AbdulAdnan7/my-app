@@ -20,3 +20,30 @@ export async function DELETE(req, { params }) {
     deletedUser,
   });
 }
+
+export async function PUT(req, { params }) { 
+   await connectDB()
+   
+   const { id } = await params
+   const body = await req.json()
+
+   const updatedUser = await User.findByIdAndUpdate(
+    id,
+    {
+        name: body.name,
+        email: body.email
+    }, { new: true }
+   )
+
+   if(!updatedUser) {
+    return Response.json(
+        { mesage: "User not found" },
+        { status: 404 }
+    )
+   }
+
+   return Response.json({
+    message: 'User updated successfully',
+    updatedUser
+   })
+}
