@@ -3,9 +3,11 @@ import Image from "next/image";
 export default function Home() {
   return (
   <>
-  <div className="text-center text-6xl flex justify-center items-center">
-    <h1>Tis is mono Text</h1>
-  </div>
+   <div>
+    <h1 className="h2 ml-4 text-4xl">
+      Hello from Home Page
+    </h1>
+   </div>
   </>
   );
 }
